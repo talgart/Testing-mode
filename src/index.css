@@ -1,13 +1,343 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.nav-header {
+    display: grid;
+    max-width: 1720px;
+    margin: 0 auto;
+    height: 60px;
+    left: 0;
+    top: 1px;
+    grid-template-columns: 1fr auto 1fr;
+    background: #212121;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.myContacts {
+    position: absolute;
+    width: 173px;
+    height: 37px;
+    left: 68px;
+    top: 16px;
+    text-decoration: none;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+    color: #FFFFFF;
+}
+
+.headerTool {
+    display: grid;
+    max-width: 214px;
+    height: 37px;
+    left: 27px;
+    top: 16px;
+}
+
+.logo {
+    position: absolute;
+    left: 1.88%;
+    right: 95.9%;
+    top: 1.76%;
+    bottom: 95.12%;
+}
+
+
+.rectangle {
+    position: absolute;
+    width: 551px;
+    height: 40px;
+    left: 143px;
+    top: 115px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(33, 33, 33, 0.35);
+    border-radius: 2px;
+
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1px);
+}
+
+.controls {
+    margin-top: 90px;
+    margin-left: 20px;
+    grid-gap: 100px;
+
+}
+
+.heart {
+    margin-top: 90px;
+    grid-column-end: 4;
+
+}
+
+.controls .search {
+    width: 100%;
+    font-size: 20px;
+    height: 30px;
+
+}
+
+.type-to-search {
+
+
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    /* identical to box height */
+
+
+    color: rgba(33, 33, 33, 0.5);
+}
+
+.like {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 1144px;
+    top: 115px;
+}
+
+
+.title {
+    position: absolute;
+    width: 154px;
+    height: 21px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    top: 124px;
+}
+
+
+.card-img {
+    position: absolute;
+    width: 250px;
+    height: 134px;
+}
+
+.unlikes {
+    position: absolute;
+    left: 220px;
+    top: 144px;
+    bottom: 3.51%;
+
+}
+
+.likes {
+    margin-top: 100px;
+
+
+}
+
+
+
+.location {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 57.67%;
+    bottom: 0%;
+}
+
+.address {
+    position: absolute;
+    width: 141px;
+    height: 15px;
+    top: 160px;
+    padding-left: 20px;
+
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.telephone {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 67.67%;
+    bottom: 0%;
+}
+
+.tel-text {
+    position: absolute;
+    width: 105px;
+    height: 15px;
+    left: 20px;
+    top: 193px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.website {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 77%;
+    bottom: 0%;
+}
+
+.mysite {
+    position: absolute;
+    width: 67px;
+    height: 15px;
+    left: 22px;
+    top: 220px;
+
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.mail {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 85.31%;
+    bottom: 0%;
+}
+
+.website-text {
+    position: absolute;
+    width: 105px;
+    height: 15px;
+    left: 21px;
+    top: 245px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+
+.show-text {
+    position: absolute;
+    width: 95px;
+    height: 21px;
+    background: #212121;
+    border-radius: 2px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+.testing-mode {
+    position: absolute;
+    width: 154px;
+    height: 21px;
+    left: 150px;
+    top: 474px;
+
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    background: #262626;
+}
+
+.grid {
+    margin-top: 150px;
+    margin-bottom: 20px;
+    display: grid;
+    margin-left: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 20px;
+    align-items: stretch;
+}
+
+.grid > article {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.grid > article img {
+    max-width: 100%;
+}
+
+.text {
+    padding: 0 20px 20px;
+}
+
+.text > button {
+    background: #212121;
+    border-radius: 2px;
+    color: white;
+    margin-left: 90px;
+    padding: 10px;
+    width: 70%;
+}
+
+
+.input-type {
+    width: 100%;
+    height: 20px;
+}
+
+.column img {
+    max-width: 100%;
+
+}
+
+.images {
+    margin-top: 40px;
+}
+
+.info {
+    margin-bottom: 20px;
+    display: grid;
+    margin-left: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+    align-items: stretch;
+}
+
+
+.row {
+    display: flex;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.btn-save {
+    margin-top: 50px;
+    background: #212121;
+    border-radius: 2px;
+    color: white;
+    padding: 5px;
+    width: 100%;
+
 }
