@@ -1,58 +1,30 @@
-import React from 'react'
-import logo from './Vector.png'
-import likes from './Heart.png'
-import {observable, runInAction} from "mobx";
-import {inject} from "mobx-react";
-@inject
-class MyContacts extends React.Component {
-  @observable  isLoading = true;
-  @observable  contacts = [];
+import React  from 'react'
+import logo from './img/Vector.png'
+import likes from './img/Heart.png'
+import {inject, observer} from "mobx-react";
+import {runInAction} from "mobx";
+import unlike from "./img/unliked.png"
 
+@inject('userData') @observer
+class MyContacts extends React.Component {
 
   componentWillMount() {
-    this.contacts = JSON.parse(localStorage.getItem('contacts'));
-    this.isLoading = false
-
+    localStorage.getItem('contacts') && runInAction(()=>{
+      this.props.userData.contacts = JSON.parse(localStorage.getItem('contacts'));
+      this.props.userData.isLoading = false
+    })
   }
 
   componentDidMount() {
     if (!localStorage.getItem('contacts')) {
-      this.load();
-    } else {
-      console.log("data is already in localStorage")
+      this.props.userData.load()
     }
 
-  }
-
-
-  load() {
-    this.contacts = [];
-
-    fetch('https://my-json-server.typicode.com/RomanChasovitin/demo-api/users')
-      .then(response => response.json())
-      .then(parsedJSON => parsedJSON.data.map(user => (
-        {
-          firstName: `${user.firstName}`,
-          lastName: `${user.lastName}`,
-          phoneNumber: `${user.phoneNumber}`,
-          email: `${user.email}`,
-          city: `${user.city}`,
-          country: `${user.country}`,
-          website: `${user.website}`,
-          image: `${user.image}`,
-          id: `${user.id}`
-        }
-      )))
-      .then(contacts =>
-        (this.contacts = contacts, this.isLoading = true)
-      )
-      .catch(error => console.log('parsing failed', error))
 
   }
-
 
   componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem('contacts', JSON.stringify(nextState.contacts));
+    localStorage.setItem('contacts', JSON.stringify(this.props.userData.contacts));
   }
 
   toggle = (id) => {
@@ -60,6 +32,7 @@ class MyContacts extends React.Component {
   };
 
   render() {
+    let {contacts, isLoading} = this.props.userData;
     return (
       <div>
         <nav className={'nav-header'}>
@@ -79,17 +52,21 @@ class MyContacts extends React.Component {
           </div>
         </div>
         <main className="grid">
-          {!this.isLoading && this.contacts.length > 0 ? this.contacts.map(contact => {
-            const {firstName, lastName, image, phoneNumber, email, id, city, country, website} = contact;
+          {!isLoading && contacts.length > 0 ? contacts.map(contact => {
             return <article>
-              <img src={image} alt="images"/>
+              <img src={contact.image} alt="images"/>
               <div className="text">
-                <h3>{firstName} {lastName}</h3>
-                <p>{city}, {country}</p>
-                <p>{phoneNumber}</p>
-                <p>{website}</p>
-                <p>{email}</p>
-                <button onClick={() => this.toggle(id)}>Show me</button>
+                <div className="gridRow">
+                  <h3>{contact.firstName} {contact.lastName}</h3>
+                  <div className="gridCol">
+                    <img src={unlike} className="unlikes" alt="unlike"/>
+                  </div>
+                </div>
+                <p>{contact.city}, {contact.country}</p>
+                <p>{contact.phoneNumber}</p>
+                <p>{contact.website}</p>
+                <p>{contact.email}</p>
+                <button onClick={() => this.toggle(contact.id)}>Show me</button>
               </div>
             </article>
           }) : null}

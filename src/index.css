@@ -25,13 +25,6 @@
     color: #FFFFFF;
 }
 
-.headerTool {
-    display: grid;
-    max-width: 214px;
-    height: 37px;
-    left: 27px;
-    top: 16px;
-}
 
 .logo {
     position: absolute;
@@ -42,17 +35,8 @@
 }
 
 
-.rectangle {
-    position: absolute;
-    width: 551px;
-    height: 40px;
-    left: 143px;
-    top: 115px;
-
-    background: #FFFFFF;
-    border: 1px solid rgba(33, 33, 33, 0.35);
-    border-radius: 2px;
-
+.unlikes{
+    margin-top: 20px;
 }
 
 .wrapper {
@@ -81,19 +65,7 @@
 
 }
 
-.type-to-search {
 
-
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 18px;
-    /* identical to box height */
-
-
-    color: rgba(33, 33, 33, 0.5);
-}
 
 .like {
     position: absolute;
@@ -124,136 +96,22 @@
     height: 134px;
 }
 
-.unlikes {
-    position: absolute;
-    left: 220px;
-    top: 144px;
-    bottom: 3.51%;
+
+
+.gridRow{
+    display: grid;
+    grid-template-columns:  auto 10rem;
 
 }
-
+.gridCol{
+    grid-column-end: 4;
+}
 .likes {
     margin-top: 100px;
 
 
 }
 
-
-
-.location {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 57.67%;
-    bottom: 0%;
-}
-
-.address {
-    position: absolute;
-    width: 141px;
-    height: 15px;
-    top: 160px;
-    padding-left: 20px;
-
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 15px;
-}
-
-.telephone {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 67.67%;
-    bottom: 0%;
-}
-
-.tel-text {
-    position: absolute;
-    width: 105px;
-    height: 15px;
-    left: 20px;
-    top: 193px;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 15px;
-}
-
-.website {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 77%;
-    bottom: 0%;
-}
-
-.mysite {
-    position: absolute;
-    width: 67px;
-    height: 15px;
-    left: 22px;
-    top: 220px;
-
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 15px;
-}
-
-.mail {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 85.31%;
-    bottom: 0%;
-}
-
-.website-text {
-    position: absolute;
-    width: 105px;
-    height: 15px;
-    left: 21px;
-    top: 245px;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 15px;
-}
-
-
-.show-text {
-    position: absolute;
-    width: 95px;
-    height: 21px;
-    background: #212121;
-    border-radius: 2px;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #FFFFFF;
-}
-
-.testing-mode {
-    position: absolute;
-    width: 154px;
-    height: 21px;
-    left: 150px;
-    top: 474px;
-
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-}
 
 .body {
     margin: 0;

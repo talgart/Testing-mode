@@ -1,47 +1,40 @@
 import React from 'react'
 import {Formik} from "formik";
-import likes from './Heart.png'
-import logo from "./Vector.png";
+import likes from './img/Heart.png'
+import logo from "./img/Vector.png";
+import {observable, runInAction} from "mobx";
 
 
 class Form extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: null,
-      id: null
-    }
-  }
+  @observable data=null;
+  @observable id= null;
 
   componentWillMount() {
     let id = (this.props.match.params.id);
-    localStorage.getItem('contacts') && this.setState({
-      data: JSON.parse(localStorage.getItem('contacts')),
-      id: id
-    });
+    localStorage.getItem('contacts') && runInAction(()=>{
+      this.data = JSON.parse(localStorage.getItem('contacts'));
+      this.id  = id
+    })
 
 
   }
 
   modifyData = (values) => {
-    let {data, id} = this.state;
-    data[id - 1].firstName = values.firstName;
-    data[id - 1].lastName = values.lastName;
-    data[id - 1].email = values.email;
-    data[id - 1].city = values.city;
-    data[id - 1].country = values.country;
-    data[id - 1].phoneNumber = values.phoneNumber;
-    data[id - 1].website = values.website;
+    this.data[this.id - 1].firstName = values.firstName;
+    this.data[this.id - 1].lastName = values.lastName;
+    this.data[this.id - 1].email = values.email;
+    this.data[this.id - 1].city = values.city;
+    this.data[this.id - 1].country = values.country;
+    this.data[this.id - 1].phoneNumber = values.phoneNumber;
+    this.data[this.id - 1].website = values.website;
 
-    localStorage.setItem('contacts', JSON.stringify(data))
+    localStorage.setItem('contacts', JSON.stringify(this.data));
     alert("the data has been saved ")
 
   };
 
 
   render() {
-    let {data, id} = this.state;
-    console.log(data);
     return (
       <div>
         <nav className={'nav-header'}>
@@ -54,14 +47,13 @@ class Form extends React.Component {
         </nav>
         <Formik
           initialValues={{
-            data: this.state.data,
-            email: data[id - 1].email,
-            firstName: data[id - 1].firstName,
-            lastName: data[id - 1].lastName,
-            city: data[id - 1].city,
-            country: data[id - 1].country,
-            phoneNumber: data[id - 1].phoneNumber,
-            website: data[id - 1].website
+            email: this.data[this.id - 1].email,
+            firstName: this.data[this.id - 1].firstName,
+            lastName: this.data[this.id - 1].lastName,
+            city: this.data[this.id - 1].city,
+            country: this.data[this.id - 1].country,
+            phoneNumber: this.data[this.id - 1].phoneNumber,
+            website: this.data[this.id - 1].website
           }}
           validate={values => {
             let errors = {};
@@ -91,7 +83,7 @@ class Form extends React.Component {
             <form onSubmit={handleSubmit}>
               <div className="info">
                 <div className="column">
-                    <img src={data[id - 1].image} className="images"  alt="image"/>
+                    <img src={this.data[this.id - 1].image} className="images"  alt="image"/>
                 </div>
                 <div className="column">
                      <img src={likes} className="likes" alt="likes"/>
