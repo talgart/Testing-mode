@@ -1,15 +1,15 @@
-import React  from 'react'
+import React from 'react'
 import logo from './img/Vector.png'
 import likes from './img/Heart.png'
 import {inject, observer} from "mobx-react";
 import {runInAction} from "mobx";
-import unlike from "./img/unliked.png"
+import Card from "./components/Card";
 
 @inject('userData') @observer
 class MyContacts extends React.Component {
 
   componentWillMount() {
-    localStorage.getItem('contacts') && runInAction(()=>{
+    localStorage.getItem('contacts') && runInAction(() => {
       this.props.userData.contacts = JSON.parse(localStorage.getItem('contacts'));
       this.props.userData.isLoading = false
     })
@@ -54,20 +54,8 @@ class MyContacts extends React.Component {
         <main className="grid">
           {!isLoading && contacts.length > 0 ? contacts.map(contact => {
             return <article>
-              <img src={contact.image} alt="images"/>
-              <div className="text">
-                <div className="gridRow">
-                  <h3>{contact.firstName} {contact.lastName}</h3>
-                  <div className="gridCol">
-                    <img src={unlike} className="unlikes" alt="unlike"/>
-                  </div>
-                </div>
-                <p>{contact.city}, {contact.country}</p>
-                <p>{contact.phoneNumber}</p>
-                <p>{contact.website}</p>
-                <p>{contact.email}</p>
-                <button onClick={() => this.toggle(contact.id)}>Show me</button>
-              </div>
+                <Card details={contact} toggle={this.toggle} />
+
             </article>
           }) : null}
         </main>

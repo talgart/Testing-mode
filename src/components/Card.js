@@ -1,5 +1,4 @@
 import React from 'react'
-import unlike from "../img/unliked.png";
 
 class Card extends React.Component {
   render() {
@@ -8,12 +7,7 @@ class Card extends React.Component {
       <div>
         <img src={details.image} alt="images"/>
         <div className="text">
-          <div className="gridRow">
-            <h3>{details.firstName} {details.lastName}</h3>
-            <div className="gridCol">
-              <img src={unlike} className="unlikes" alt="unlike"/>
-            </div>
-          </div>
+          <h3>{details.firstName} {details.lastName}</h3>
           <p>{details.city}, {details.country}</p>
           <p>{details.phoneNumber}</p>
           <p>{details.website}</p>
@@ -21,9 +15,9 @@ class Card extends React.Component {
           <button onClick={() => toggle(details.id)}>Show me</button>
         </div>
       </div>
-    )
-  }
+        )
+        }
 
-}
+        }
 
-export default Card
+        export default Card
